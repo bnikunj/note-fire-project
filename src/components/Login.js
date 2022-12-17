@@ -5,18 +5,11 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email: "", password: ""}) 
-    let history = useNavigate();
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        // const result = JSON.stringify(credentials);
-        // console.log(result);
         e.preventDefault();
-        // // const body = result;
-        // const headers = {
-        //     'Content-Type': 'application/json'
-        // }
-        // const response = await axios.post('http://localhost:5000/api/auth/login', credentials, {mode: 'no-cors'} ).then((err) => { console.log(err);});
-        const response = await fetch("http://localhost:3000/api/auth/login", {
+        const response = await fetch("http://localhost:5000/api/auth/login", {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: {
@@ -28,7 +21,7 @@ const Login = (props) => {
         if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken); 
-            history.push("/");
+            navigate("/");
 
         }
         else{

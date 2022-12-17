@@ -37,6 +37,7 @@ console.log('__DP',credentials);
           </label>
           <input
             type="name"
+            name="name"
             className="form-control"
             onChange={onChange} id="name"
           />
@@ -47,7 +48,7 @@ console.log('__DP',credentials);
           </label>
           <input
             type="email"
-            name="name"
+            name="email"
             className="form-control"
             onChange={onChange} id="email"
             aria-describedby="emailHelp"
